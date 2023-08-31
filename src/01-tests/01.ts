@@ -21,11 +21,3 @@ export const splitIntoWords = (sentence: string) => {
 console.log(splitIntoWords("Hello my friend !"))
 
 console.log(splitIntoWords("JS - is a programming language!"))
-
-export const city = {
-	houses: [
-		{build: 2012, repaired: false, address:{number: 100, street:{title:"White street"}}},
-		{build: 2008, repaired: false, address:{number: 100, street:{title:"Happy street"}}},
-		{build: 2020, repaired: false, address:{number: 200, street:{title:"Hogwarts street"}}},
-	]
-}

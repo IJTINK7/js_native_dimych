@@ -1,4 +1,4 @@
-import {city, multimply, splitIntoWords, sum} from "./01";
+import {sum,multimply, splitIntoWords, } from "./01";
 
 // let a: number;
 // let b: number;
@@ -48,23 +48,4 @@ test("splitting into words should be corrected", ()=>{
 	expect(result2[0]).toBe("js")
 	expect(result2[4]).toBe("language")
 
-})
-
-test("city should contains 3 houses", () => {
-	expect(city.houses.length).toBe(3);
-
-	expect(city.houses[0].build).toBe(2012);
-	expect(city.houses[0].repaired).toBe(false);
-	expect(city.houses[0].address.number).toBe(100);
-	expect(city.houses[0].address.street.title).toBe("White street");
-
-	expect(city.houses[1].build).toBe(2008);
-	expect(city.houses[1].repaired).toBe(false);
-	expect(city.houses[1].address.number).toBe(100);
-	expect(city.houses[1].address.street.title).toBe("Happy street");
-
-	expect(city.houses[2].build).toBe(2020);
-	expect(city.houses[2].repaired).toBe(false);
-	expect(city.houses[2].address.number).toBe(200);
-	expect(city.houses[2].address.street.title).toBe("Hogwarts street");
 })
