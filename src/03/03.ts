@@ -1,4 +1,5 @@
 import {StudentType} from "../02/02";
+import {CityType, GovernmentBuildingType, HousesType} from "../02/02_02";
 
 // const sum = (a: number, b: number) => {
 // 	return a + b;
@@ -23,4 +24,20 @@ export const makeStudentMarried = (student:StudentType) => {
 }
 export const checkTheCity = (student:StudentType, city: string) => {
 	return student.address.city.name === city
+}
+export const addMoneyToBudget = (building:GovernmentBuildingType, additionalBudget: number) => {
+	building.budget += additionalBudget
+}
+export const repairHouse = (house: HousesType) => {
+	house.repaired = true
+}
+
+export const toFireStaff = (building:GovernmentBuildingType, staffCount: number ) => {
+	building.staffCount -= staffCount
+}
+export const toHireStaff = (building:GovernmentBuildingType, staffCount: number ) => {
+	building.staffCount += staffCount
+}
+export const createMessage = (city: CityType ) => {
+	return `Hello ${city.title} citizens. I want you be happy. All ${city.citizensNumber} persons`
 }
