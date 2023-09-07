@@ -1,4 +1,4 @@
-import {CityType} from "../02/02_02";
+import {CityType} from "../02-objects/02_02";
 import {addMoneyToBudget, createMessage, repairHouse, toFireStaff, toHireStaff} from "./03";
 
 let city: CityType;
@@ -71,14 +71,14 @@ test('Budget should be for changed fot HOSPITAL', () => {
 	expect(city.governmentBuildings[0].budget).toBe(320000);
 });
 
-// 02. Тесты должны пройти
+// 02-objects. Тесты должны пройти
 test('Budget should be changed for FIRE-STATION', () => {
 	addMoneyToBudget(city.governmentBuildings[1], -150000);
 	addMoneyToBudget(city.governmentBuildings[1], 60000);
 	expect(city.governmentBuildings[1].budget).toBe(410000);
 });
 
-// // 03. Создайте в том же файле ещё одну функцию, чтобы тесты прошли
+// // 03-functions. Создайте в том же файле ещё одну функцию, чтобы тесты прошли
 test('House should be repaired', () => {
 	repairHouse(city.houses[1]);
 	repairHouse(city.houses[0]);

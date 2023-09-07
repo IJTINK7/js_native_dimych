@@ -1,5 +1,5 @@
-import {StudentType} from "../02/02";
-import {CityType, GovernmentBuildingType, HousesType} from "../02/02_02";
+import {StudentType} from "../02-objects/02";
+import {CityType, GovernmentBuildingType, HousesType} from "../02-objects/02_02";
 
 // const sum = (a: number, b: number) => {
 // 	return a + b;

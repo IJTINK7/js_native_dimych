@@ -1,4 +1,4 @@
-import {StudentType} from "../02/02";
+import {StudentType} from "../02-objects/02";
 import {addSkill, checkTheCity, makeStudentMarried} from "./03";
 
 let student: StudentType;
