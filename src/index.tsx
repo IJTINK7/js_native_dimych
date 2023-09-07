@@ -4,7 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {value01_01} from "./01-tests/01";
+import {value04} from "./04-filter/04";
+
 console.log(value01_01)
+console.log(value04)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
