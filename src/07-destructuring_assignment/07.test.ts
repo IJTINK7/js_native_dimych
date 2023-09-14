@@ -44,6 +44,10 @@ test("Check the correct array values",()=>{
 
 	const [th1, th2, th3] = student.technologies
 
+	const [thg1, ...restProps] = student.technologies;
+
+	const [ , thn2, ...restProps2] = student.technologies;
+
 	expect(t1).toStrictEqual({id: 1, title: "HTML"})
 	expect(t2).toStrictEqual({id: 2, title: "CSS"})
 	expect(t3).toStrictEqual({id: 3, title: "JS"})
@@ -52,4 +56,11 @@ test("Check the correct array values",()=>{
 	expect(th2).toStrictEqual({id: 2, title: "CSS"})
 	expect(th3).toStrictEqual({id: 3, title: "JS"})
 
+	expect(thg1.title).toStrictEqual("HTML")
+	expect(restProps).toStrictEqual([{id: 2, title: "CSS"}, {id: 3, title: "JS"}])
+
+	expect(thn2.title).toStrictEqual("CSS")
+	expect(restProps2).toStrictEqual([{id: 3, title: "JS"}])
+	expect(restProps2.length).toBe(1)
+	expect(restProps2[0].title).toBe("JS")
 })

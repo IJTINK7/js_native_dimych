@@ -8,6 +8,11 @@ type PropsType = {
 	car: {model:string}
 }
 
+const customUseState =(message: string)=>{
+	return [message, function (){}]
+}
+customUseState("hello")
+
 //4)
 export const Student: React.FC<PropsType> = (props) => {
 	const {title, student, ...restProps} = props; // use "title" and "student" variables from "props" object and send another keys to "restProps" object
