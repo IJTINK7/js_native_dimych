@@ -6,11 +6,10 @@ import React, {MouseEvent} from "react";
 
 export const User = () =>{
 	const deleteUser = (event: MouseEvent<HTMLButtonElement>)=> {
-		console.log(event.currentTarget)
-		alert("User has been deleted")
+		console.log(event.currentTarget.value)
 	}
-	const saveUser = ()=> {
-		alert("User has been saved")
+	const saveUser = (event: MouseEvent<HTMLButtonElement>)=> {
+		console.log(event.currentTarget.value)
 	}
 	const onNameChanged =()=>{
 		console.log("Name was changed")
@@ -21,11 +20,11 @@ export const User = () =>{
 	return (
 		<div>
 			<div>
-				<textarea onChange={onNameChanged} onBlur={focusHasBeenLostHandler}>Roma</textarea>
+				<textarea value={""} onChange={onNameChanged} onBlur={focusHasBeenLostHandler}>Roma</textarea>
 			</div>
 			<input type="text"/>
-			<button onClick={saveUser}>Save</button>
-			<button onClick={deleteUser}>Delete</button>
+			<button value={"save"} onClick={saveUser}>Save</button>
+			<button value={"delete"} onClick={deleteUser}>Delete</button>
 		</div>
 	)
 }
