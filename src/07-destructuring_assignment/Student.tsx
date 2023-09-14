@@ -4,15 +4,29 @@ import {StudentType} from "../02-objects/02";
 type PropsType = {
 	title: string
 	student: StudentType
+	food: string[]
+	car: {model:string}
 }
-export const Student: React.FC<PropsType> = ({title, student:{name}}) => {
+
+export const Student: React.FC<PropsType> = ({title, student, ...props}) => { // rest operator (use all another keys and send them to props object)
 	return (
 		<div>
 			<h1>{title}</h1>
-			<h2>{name}</h2>
+			<h2>{props.car.model}</h2>
+			<h2>{student.name}</h2>
+			<h2>{props.food}</h2>
 		</div>
 	);
 };
+
+// export const Student: React.FC<PropsType> = ({title, student:{name}}) => {
+// 	return (
+// 		<div>
+// 			<h1>{title}</h1>
+// 			<h2>{name}</h2>
+// 		</div>
+// 	);
+// };
 
 
 // export const Student: React.FC<PropsType> = (props) => {
