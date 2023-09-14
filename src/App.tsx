@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {User} from "./06-callback_events/06";
 
 function App() {
     const names = ["Roma", "Igor", "Anna"]
@@ -17,6 +18,7 @@ function App() {
         <ol>
             {users.map(el=><li key={el.id}>{el.name}</li>)}
         </ol>
+        <User/>
     </div>
   );
 }
