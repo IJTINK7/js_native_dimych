@@ -21,8 +21,12 @@ test("Check the correct object values",()=>{
 	}
 
 	let{name, age, isMarried} = student
+	let{name: myName, age: newAge} = student // pseudonyms for variables (not typification !!! - not recommended)
+	console.log(myName)
+	console.log(newAge)
 
 	let technologies = student.technologies
+
 
 	expect(age).toBe(28)
 	expect(technologies.length).toBe(3)
