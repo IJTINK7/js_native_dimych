@@ -19,8 +19,13 @@ test("Check the correct object values",()=>{
 			{id: 3, title: "JS"},
 		]
 	}
-	let age = student.age
+
+	let{name, age, isMarried} = student
+
 	let technologies = student.technologies
+
 	expect(age).toBe(28)
 	expect(technologies.length).toBe(3)
+	expect(name).toBe("Roma")
+	expect(isMarried).toBe(false)
 })
