@@ -13,3 +13,14 @@ export const Student: React.FC<PropsType> = ({title, student:{name}}) => {
 		</div>
 	);
 };
+
+
+// export const Student: React.FC<PropsType> = (props) => {
+// 	const {title, student} = props
+// 	return (
+// 		<div>
+// 			<h1>{title}</h1>
+// 			<h2>{student.name}</h2>
+// 		</div>
+// 	);
+// };
