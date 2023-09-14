@@ -5,9 +5,7 @@ type PropsType = {
 	title: string
 	student: StudentType
 }
-export const Student: React.FC<PropsType> = (props) => {
-	const {title, student:{name}} = props
-
+export const Student: React.FC<PropsType> = ({title, student:{name}}) => {
 	return (
 		<div>
 			<h1>{title}</h1>
