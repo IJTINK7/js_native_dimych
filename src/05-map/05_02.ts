@@ -7,5 +7,6 @@ export const getStreetsTitlesOfHouses = (houses: HousesType[]) => {
 	return houses.map(el => el.address.street.title)
 }
 export const createMessages = (houses: HousesType[]) => {
-	return houses.map(el => `Hello from ${el.address.street.title}`)
+	let callbackFunction = (el: HousesType) => `Hello from ${el.address.street.title}`;
+	return houses.map(callbackFunction)
 }
