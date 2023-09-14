@@ -8,7 +8,10 @@ type PropsType = {
 	car: {model:string}
 }
 
-export const Student: React.FC<PropsType> = ({title, student, ...props}) => { // rest operator (use all another keys and send them to props object)
+//4)
+export const Student: React.FC<PropsType> = (props) => {
+	const {title, student, ...restProps} = props; // use "title" and "student" variables from "props" object and send another keys to "restProps" object
+	console.log(restProps)
 	return (
 		<div>
 			<h1>{title}</h1>
@@ -19,7 +22,22 @@ export const Student: React.FC<PropsType> = ({title, student, ...props}) => { //
 	);
 };
 
+//3)
+// export const Student: React.FC<PropsType> = ({title, student, ...props}) => { // rest operator (use all another keys and send them to props object)
+//
+// // 	return (
+// // 		<div>
+// // 			<h1>{title}</h1>
+// // 			<h2>{props.car.model}</h2>
+// // 			<h2>{student.name}</h2>
+// // 			<h2>{props.food}</h2>
+// // 		</div>
+// // 	);
+// // };
+
+//2)
 // export const Student: React.FC<PropsType> = ({title, student:{name}}) => {
+
 // 	return (
 // 		<div>
 // 			<h1>{title}</h1>
@@ -28,8 +46,11 @@ export const Student: React.FC<PropsType> = ({title, student, ...props}) => { //
 // 	);
 // };
 
+//1)
 
 // export const Student: React.FC<PropsType> = (props) => {
+
+
 // 	const {title, student} = props
 // 	return (
 // 		<div>
@@ -38,3 +59,4 @@ export const Student: React.FC<PropsType> = ({title, student, ...props}) => { //
 // 		</div>
 // 	);
 // };
+
