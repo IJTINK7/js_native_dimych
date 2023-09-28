@@ -47,6 +47,7 @@ test("array test", () => {
 		}
 	})
 
+	expect(admins.length).toEqual(3)
 	expect(users.length).toEqual(3)
 })
 
@@ -67,8 +68,7 @@ test("array test 2", () => {
 			}
 		},
 	]
-	let addr = users[0].address
-	let user2Name = addr.title
-	console.log(user2Name)
-	expect(user2Name).toEqual("Minsk")
+	let admins = [users[0], users[1]]
+	users[0].name = "Roman"
+	expect(admins[0].name).toEqual("Roman")
 })
