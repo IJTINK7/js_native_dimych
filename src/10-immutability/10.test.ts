@@ -88,3 +88,31 @@ test("User keys should be changed", ()=>{
 	expect(user.books).toEqual(changeHouse.books)
 
 })
+test("Adding new books to user", ()=>{
+	type booksType = string[]
+	const user: UserWithLaptopType & UserWithBooksType = {
+		name: "Roma",
+		hairLength: 35,
+		address:{
+			city: "Minsk",
+			house: 12
+		},
+		laptop: {
+			title: "ZenBook"
+		},
+		books: ["HTML", "CSS", "JS", "React"]
+	}
+
+	const addNewBooksToUser = (user: UserWithLaptopType & UserWithBooksType, newBooks: booksType) => {
+		return{...user, books: [...user.books.concat(newBooks)]}
+	}
+	const userCopy = addNewBooksToUser(user, ["TS", "REST API"])
+	console.log(userCopy)
+
+	expect(user).not.toBe(userCopy)
+	expect(user.address).toBe(userCopy.address)
+	expect(userCopy.address.house).toBe(12)
+	expect(user.books.length).toEqual(4)
+	expect(userCopy.books.length).toEqual(6)
+
+})
