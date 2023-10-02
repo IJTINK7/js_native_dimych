@@ -58,5 +58,7 @@ test("Hair length should be decreased", ()=>{
 	expect(visitor.laptop).toBe(movedUser.laptop)
 	expect(movedUser.address.city).toBe("Kiev")
 	expect(changeLaptop.laptop.title).toBe("MacBook")
+	expect(visitor.laptop.title).toBe("ZenBook")
 	expect(changeLaptop.address).toBe(visitor.address)
+	expect(visitor).not.toEqual(changeLaptop)
 })
