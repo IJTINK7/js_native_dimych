@@ -109,10 +109,20 @@ test("Adding new books to user", ()=>{
 	const userCopy = addNewBooksToUser(user, ["TS", "REST API"])
 	console.log(userCopy)
 
+	const updateBook = (user:UserWithLaptopType & UserWithBooksType, oldBook: string, newBook: string) => {
+		return{...user, books: user.books.map(el=> el === oldBook ? newBook : el)}
+	}
+
+	const updatedBookCopy = updateBook(user, "JS", "Javascript")
+
+	console.log(updatedBookCopy)
 	expect(user).not.toBe(userCopy)
 	expect(user.address).toBe(userCopy.address)
 	expect(userCopy.address.house).toBe(12)
-	expect(user.books.length).toEqual(4)
-	expect(userCopy.books.length).toEqual(6)
+	expect(user.books.length).toBe(4)
+	expect(userCopy.books.length).toBe(6)
+	expect(updatedBookCopy.books.length).toBe(4)
+	expect(updatedBookCopy.books[2]).toBe("Javascript")
+
 
 })
