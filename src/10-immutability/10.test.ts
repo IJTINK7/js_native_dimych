@@ -1,6 +1,5 @@
 import {cutHair, UserWithLaptopType} from "./10";
 
-
 test("Hair length should be decreased", ()=>{
 	const visitor: UserWithLaptopType = {
 		name: "Roma",
@@ -21,6 +20,12 @@ test("Hair length should be decreased", ()=>{
 	}
 
 	const movedUser = changeCity(visitor, "Kiev")
+
+	const changeUserLaptop = (visitor: UserWithLaptopType, newLaptop: string) => {
+		return{...visitor, laptop: {...visitor.laptop, title: newLaptop}}
+	}
+	const changeLaptop = changeUserLaptop(visitor, "MacBook")
+
 
 	expect(visitor.hairLength).toBe(35)
 	expect(cutUser.hairLength).toBe(25)
@@ -52,4 +57,6 @@ test("Hair length should be decreased", ()=>{
 	expect(visitor.address).not.toBe(movedUser.address)
 	expect(visitor.laptop).toBe(movedUser.laptop)
 	expect(movedUser.address.city).toBe("Kiev")
+	expect(changeLaptop.laptop.title).toBe("MacBook")
+	expect(changeLaptop.address).toBe(visitor.address)
 })
