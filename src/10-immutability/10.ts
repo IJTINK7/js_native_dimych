@@ -9,6 +9,9 @@ export type LaptopType={
 export type UserWithLaptopType = VisitorType & {
 	laptop: LaptopType
 }
+export type UserWithBooksType = VisitorType & {
+	books: string[]
+}
 const visitor = {
 	name: "Roma",
 	hairLength: 35,

@@ -1,4 +1,4 @@
-import {cutHair, UserWithLaptopType} from "./10";
+import {cutHair, UserWithBooksType, UserWithLaptopType} from "./10";
 
 test("Hair length should be decreased", ()=>{
 	const visitor: UserWithLaptopType = {
@@ -61,4 +61,30 @@ test("Hair length should be decreased", ()=>{
 	expect(visitor.laptop.title).toBe("ZenBook")
 	expect(changeLaptop.address).toBe(visitor.address)
 	expect(visitor).not.toEqual(changeLaptop)
+})
+
+test("User keys should be changed", ()=>{
+	const user: UserWithLaptopType & UserWithBooksType = {
+		name: "Roma",
+		hairLength: 35,
+		address:{
+			city: "Minsk",
+			house: 12
+		},
+		laptop: {
+			title: "ZenBook"
+		},
+		books: ["HTML", "CSS", "JS", "React"]
+	}
+	const moveUserToAnotherHouse = (user: UserWithLaptopType & UserWithBooksType, houseNumber: number ) => {
+		return{...user, address: {...user.address, house: houseNumber}}
+	}
+	const changeHouse = moveUserToAnotherHouse(user, 99)
+	expect(user).not.toBe(changeHouse)
+	expect(user.address).not.toBe(changeHouse.address)
+	expect(user.address.house).toBe(12)
+	expect(changeHouse.address.house).toBe(99)
+	expect(user.laptop).toEqual(changeHouse.laptop)
+	expect(user.books).toEqual(changeHouse.books)
+
 })
