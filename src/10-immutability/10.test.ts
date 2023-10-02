@@ -107,7 +107,7 @@ test("Adding new books to user", ()=>{
 		return{...user, books: [...user.books.concat(newBooks)]}
 	}
 	const userCopy = addNewBooksToUser(user, ["TS", "REST API"])
-	console.log(userCopy)
+	// console.log(userCopy)
 
 	const updateBook = (user:UserWithLaptopType & UserWithBooksType, oldBook: string, newBook: string) => {
 		return{...user, books: user.books.map(el=> el === oldBook ? newBook : el)}
@@ -115,7 +115,12 @@ test("Adding new books to user", ()=>{
 
 	const updatedBookCopy = updateBook(user, "JS", "Javascript")
 
-	console.log(updatedBookCopy)
+	const removeBook = (user:UserWithLaptopType & UserWithBooksType, removingBook: string) => {
+		return{...user, books: user.books.filter(el => el !== removingBook)}
+	}
+	const removedBookCopy = removeBook(user, "CSS")
+	console.log(removedBookCopy)
+
 	expect(user).not.toBe(userCopy)
 	expect(user.address).toBe(userCopy.address)
 	expect(userCopy.address.house).toBe(12)
@@ -123,6 +128,8 @@ test("Adding new books to user", ()=>{
 	expect(userCopy.books.length).toBe(6)
 	expect(updatedBookCopy.books.length).toBe(4)
 	expect(updatedBookCopy.books[2]).toBe("Javascript")
+	expect(removedBookCopy.books.length).toBe(3)
+	expect(removedBookCopy.books[2]).toBe("React")
 
 
 })
