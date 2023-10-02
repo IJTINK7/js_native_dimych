@@ -177,3 +177,28 @@ test("Adding new companies to user", ()=>{
 	expect(updateCompany2.companies[0].title).toBe("EPAM Technologies")
 
 })
+test("Update companies", ()=>{
+	type companiesType = {
+		[key: string]: {id: number, title: string}[]
+	}
+	const companies: companiesType = {
+		"Roma": [
+			{id: 1, title: "EPAM"},
+			{id: 2, title: "Twist"},
+			{id: 3, title: "Itra"}
+		],
+		"Anna": [
+			{id: 1, title: "Twitter"},
+			{id: 2, title: "VK"},
+			{id: 3, title: "Facebook"}
+		]
+	}
+	const updatingCompanyTitle = (companies: companiesType, companiesPerson: string, updatingCompanyName: string) => {
+		return{...companies, [companiesPerson]:companies[companiesPerson].map(el => el.title === "Twitter" ? {...el, title: updatingCompanyName}: el)}
+	}
+	const updateCompany = updatingCompanyTitle(companies,"Anna", "X")
+	console.log(updateCompany)
+
+	expect(companies["Anna"][0].title).toBe("Twitter")
+	expect(updateCompany["Anna"][0].title).toBe("X")
+})
