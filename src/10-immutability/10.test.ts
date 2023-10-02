@@ -1,4 +1,4 @@
-import {cutHair, UserWithBooksType, UserWithLaptopType} from "./10";
+import {cutHair, UserWithBooksType, UserWithCompaniesType, UserWithLaptopType} from "./10";
 
 test("Hair length should be decreased", ()=>{
 	const visitor: UserWithLaptopType = {
@@ -130,6 +130,50 @@ test("Adding new books to user", ()=>{
 	expect(updatedBookCopy.books[2]).toBe("Javascript")
 	expect(removedBookCopy.books.length).toBe(3)
 	expect(removedBookCopy.books[2]).toBe("React")
+})
+test("Adding new companies to user", ()=>{
+	type companyType = {id: number, title: string}
+	const user: UserWithCompaniesType = {
+		name: "Roma",
+		hairLength: 35,
+		address:{
+			city: "Minsk",
+			house: 12
+		},
+		laptop: {
+			title: "ZenBook"
+		},
+		books: ["HTML", "CSS", "JS", "React"],
+		companies: [
+			{id: 1, title: "EPAM"},
+			{id: 2, title: "Twist"},
+			{id: 3, title: "Itra"}
+		]
+	}
+	const addingNewCompany = (user: UserWithCompaniesType, newCompany: companyType ) => {
+		return{...user, companies: [...user.companies, newCompany]}
+	}
+	const addNewCompany = addingNewCompany(user, {id: 4, title: "Google"})
 
+	console.log(addNewCompany)
+
+	const updateCompanyTitle = (user: UserWithCompaniesType, updatedCompanyTitle: string ) => {
+		return{...user, companies: user.companies.map(el => el.title === "Itra" ? {...el, title: updatedCompanyTitle} : el)}
+	}
+	const updateCompany = updateCompanyTitle(user, "Itransition")
+	console.log(updateCompany)
+
+	const updateCompanyTitleDependingOnId = (user: UserWithCompaniesType, idNumber: number, updatedCompanyTitle: string ) => {
+		return{...user, companies: user.companies.map(el => el.id === idNumber ? {...el, title: updatedCompanyTitle} : el)}
+	}
+	const updateCompany2 = updateCompanyTitleDependingOnId(user, 1, "EPAM Technologies")
+	console.log(updateCompany2)
+
+	expect(user.companies.length).toBe(3)
+	expect(addNewCompany.companies.length).toBe(4)
+	expect(user.companies[2].title).toBe("Itra")
+	expect(updateCompany.companies[2].title).toBe("Itransition")
+	expect(user.companies[0].title).toBe("EPAM")
+	expect(updateCompany2.companies[0].title).toBe("EPAM Technologies")
 
 })
